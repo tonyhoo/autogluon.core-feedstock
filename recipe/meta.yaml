@@ -10,18 +10,20 @@ source:
   sha256: 96075e9bfce79420fe78a5566a1ba82f9a80598e955f4a4fc490f5561ede70bd
 
 build:
-  noarch: python
+  # noarch: python
+  skip: True  # [linux and py>=310]
+  skip: True  # [osx and py>=310]
   script: {{ PYTHON }} -m pip install ./core -vv
-  number: 1
+  number: 2
   script_env:
    - RELEASE=1
 
 requirements:
   host:
-    - python >=3.7,<3.10
+    - python # >=3.7,<3.10
     - pip
   run:
-    - python >=3.7,<3.10
+    - python # >=3.7,<3.10
     - numpy <1.24,>=1.21
     - scipy <1.10.0,>=1.5.4
     - scikit-learn <1.2,>=1.0.0
@@ -34,6 +36,7 @@ requirements:
     - dask-core <=2021.11.2,>=2021.09.1
     - distributed <=2021.11.2,>=2021.09.1
     - boto3
+    - ray-default  # [not osx]
     - autogluon.common =={{ version }}
 
 test:
