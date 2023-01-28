@@ -13,11 +13,17 @@ build:
   # noarch: python
   skip: True  # [py>=310]
   script: {{ PYTHON }} -m pip install ./core -vv
-  number: 2
+  number: 3
   script_env:
    - RELEASE=1
 
 requirements:
+  # adds osx_arm64 builds. See https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
   host:
     - python # >=3.7,<3.10
     - pip
