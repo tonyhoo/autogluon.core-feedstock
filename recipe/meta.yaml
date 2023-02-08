@@ -11,7 +11,7 @@ source:
 
 build:
   # noarch: python
-  skip: True  # [py>=311]
+  skip: True  # [py>=310]
   script: {{ PYTHON }} -m pip install ./core -vv
   number: 4
   script_env:
@@ -39,7 +39,7 @@ requirements:
     - networkx >=2.3,<3.0
     - tqdm >=4.38,<5
     - pillow >=9.3,<9.6
-    - timm >=0.5.4,<0.7
+    - timm >=0.5.4,<0.7  # [not win]
     - requests
     - matplotlib-base
     - ray-default >=2.2,<2.3  # [not osx]
