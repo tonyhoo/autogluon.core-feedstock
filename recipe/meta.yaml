@@ -39,7 +39,6 @@ requirements:
     - networkx >=3.0,<4
     - tqdm >=4.38,<5
     - pillow >=9.3,<9.6
-    - timm >=0.5.4,<0.7  # [not win]
     - requests
     - matplotlib-base
     - ray-default >=2.3,<2.4  # [not osx]
