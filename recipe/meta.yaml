@@ -15,7 +15,7 @@ build:
   script: {{ PYTHON }} -m pip install ./core -vv
   number: 0
   script_env:
-   - RELEASE=1
+    - RELEASE=1
 
 requirements:
   # adds osx_arm64 builds. See https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/
