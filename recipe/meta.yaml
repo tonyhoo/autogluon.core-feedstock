@@ -44,7 +44,7 @@ requirements:
     - ray-default >=2.3,<2.4  # [not osx]
     - grpcio >=1.42.0,<= 1.50.0
     - pydantic >=1.10.4,<2.0
-    - ray-tune >=2.3,<2.4
+    - ray-tune >=2.3,<2.4  # [not osx]
     - autogluon.common =={{ version }}
 
 test:
