@@ -41,9 +41,9 @@ requirements:
     - pillow >=9.3,<9.6
     - requests
     - matplotlib-base
-    - ray-default >=2.6,3,<2.7  # [not osx]
+    - ray-default >=2.6.3,<2.7  # [not osx]
     - pydantic >=1.10.4,<2.0
-    - ray-tune >=2.6,3,<2.7  # [not osx]
+    - ray-tune >=2.6.3,<2.7  # [not osx]
     - autogluon.common =={{ version }}
 
 test:
