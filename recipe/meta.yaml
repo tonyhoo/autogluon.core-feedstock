@@ -1,6 +1,5 @@
 {% set name = "autogluon.core" %}
 {% set version = "0.8.2" %}
-{% set number = "5" %}
 
 package:
   name: {{ name|lower }}
@@ -14,9 +13,9 @@ build:
   # noarch: python
   skip: true  # [py>=311]
   script: {{ PYTHON }} -m pip install ./core -vv
-  number: {{ number }}
+  number: 5
 {% if variant == "light" %}
-  string: "{{ variant }}_{{ number }}"
+  string: "{{ variant }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"
 {% endif %}
   script_env:
     - RELEASE=1
