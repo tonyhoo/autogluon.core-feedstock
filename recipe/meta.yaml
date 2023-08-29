@@ -15,7 +15,7 @@ build:
   script: {{ PYTHON }} -m pip install ./core -vv
   number: 5
 {% if variant == "light" %}
-  string: "{{ variant }}"
+  string: "{{ variant }}_{{ number }}"
 {% endif %}
   script_env:
     - RELEASE=1
