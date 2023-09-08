@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  skip: true  # [py>=311]
+  # skip: true  # [py>=311]
   script: {{ PYTHON }} -m pip install ./core -vv
   number: 7
   script_env:
@@ -29,7 +29,7 @@ requirements:
     - pip
   # see https://github.com/autogluon/autogluon/blob/master/core/src/autogluon/core/_setup_utils.py
   run:
-    - python # >=3.8,<3.11
+    - python >=3.8,<3.11
     - boto3 >=1.10,<2
     - numpy >=1.21,<1.27
     - pandas >=1.4.1,<2.2
