@@ -10,13 +10,10 @@ source:
   sha256: 5cf3c86a6cac944fd070c17288753788a450eb2732b237d57686546d472f0ba5
 
 build:
-  # noarch: python
+  noarch: python
   skip: true  # [py>=311]
   script: {{ PYTHON }} -m pip install ./core -vv
-  number: 6
-{% if variant == "light" %}
-  string: "{{ variant }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}"
-{% endif %}
+  number: 7
   script_env:
     - RELEASE=1
 
@@ -28,7 +25,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - numpy  >=1.21,<1.27                    # [build_platform != target_platform]
   host:
-    - python # >=3.8,<3.11
+    - python >=3.8,<3.11
     - pip
   # see https://github.com/autogluon/autogluon/blob/master/core/src/autogluon/core/_setup_utils.py
   run:
@@ -45,10 +42,9 @@ requirements:
     - requests
     - matplotlib-base
     - pydantic >=1.10.4,<2.0
-  {% if variant != "light" %}
-    - ray-default >=2.6.3,<2.7  # [not osx]
-    - ray-tune >=2.6.3,<2.7  # [not osx]
-  {% endif %}
+    # not install ray by default for now to avoid grpcio pin
+    # - ray-default >=2.6.3,<2.7  # [not osx]
+    # - ray-tune >=2.6.3,<2.7  # [not osx]
     - autogluon.common =={{ version }}
 
 test:
