@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./core -vv
-  number: 0 
+  number: 1 
   script_env:
     - RELEASE=1
 
@@ -37,7 +37,7 @@ requirements:
     - psutil >=5.7.3,<6
     - networkx >=3.0,<4
     - tqdm >=4.38,<5
-    - pillow >=9.3,<9.6
+    - pillow >=10.0.1,<11
     - requests
     - matplotlib-base
     - pydantic >=1.10.4,<2.0
