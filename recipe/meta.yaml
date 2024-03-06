@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./core -vv
-  number: 2 
+  number: 3
   script_env:
     - RELEASE=1
 
@@ -40,7 +40,6 @@ requirements:
     - pillow >=10.0.1,<11
     - requests
     - matplotlib-base
-    - pydantic >=1.10.4,<2.0
     # not install ray by default for now to avoid grpcio pin
     # - ray-default >=2.6.3,<2.7  # [not osx]
     # - ray-tune >=2.6.3,<2.7  # [not osx]
