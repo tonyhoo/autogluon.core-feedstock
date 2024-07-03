@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install ./core -vv
-  number: 0
+  number: 1
   script_env:
     - RELEASE=1
 
@@ -39,8 +39,8 @@ requirements:
     - matplotlib
     - boto3 >=1.10,<2
     - autogluon.common =={{ version }}
-    - ray-default >=2.10.0,<2.12  # increase upper bound due to 2.10 not discoverable by osx py310
-    - ray-tune >=2.10.0,<2.12  # increase upper bound due to 2.10 not discoverable by osx py310 
+    - ray-default >=2.10.0,<2.40  # increase upper bound due to 2.10 not discoverable by osx py310
+    - ray-tune >=2.10.0,<2.40  # increase upper bound due to 2.10 not discoverable by osx py310 
     - hyperopt >=0.2.7,<0.2.8 
 
 test:
