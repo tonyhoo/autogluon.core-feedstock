@@ -47,7 +47,7 @@ test:
   imports:
     - autogluon.core
   commands:
-    - python -c "from autogluon.common import __version__ as v; from packaging.version import parse; expected = '{{ version }}'; assert parse(v) == parse(expected), f'{v} != {expected}'" 
+    - python -c "from autogluon.core import __version__ as v; from packaging.version import parse; expected = '{{ version }}'; assert parse(v) == parse(expected), f'{v} != {expected}'" 
   requires:
     - pip
 
